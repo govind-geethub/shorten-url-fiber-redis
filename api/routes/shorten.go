@@ -1,6 +1,10 @@
 package routes
 
-import "time"
+import (
+	"time"
+
+	"github.com/gofiber/fiber/v2"
+)
 
 type request struct {
 	URL         string        `json:"url"`
@@ -9,9 +13,14 @@ type request struct {
 }
 
 type response struct {
-	URL
-	CustomShort
-	Expiry
-	XRateRemaining
-	XRateLimitRest
+	URL            string        `json:"url"`
+	CustomShort    string        `json:"short"`
+	Expiry         time.Duration `json:"expiry"`
+	XRateRemaining int           `json:"rate_limit"`
+	XRateLimitRest time.Duration `json:"rate_limit_reset"`
+}
+
+// ShortenURL handles creating a shortened string for a given long URL
+func ShortenURL(c *fiber.Ctx) error {
+	return c.SendString("Hello from the shorten endpoint!")
 }

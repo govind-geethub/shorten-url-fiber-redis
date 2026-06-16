@@ -10,7 +10,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
 	"github.com/govind-geethub/shorten-url-fiber-redis/database"
-	helpers "github.com/govind-geethub/shorten-url-fiber-redis/helper"
+	"github.com/govind-geethub/shorten-url-fiber-redis/helpers"
 )
 
 type request struct {
@@ -92,7 +92,7 @@ func ShortenURL(c *fiber.Ctx) error {
 		body.Expiry = 24
 	}
 
-	err := r.Set(database.Ctx, id, body.URL, body.Expiry*3600*time.Second)
+	err := r.Set(database.Ctx, id, body.URL, body.Expiry*3600*time.Second).Err()
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"error": "Unable to connect to server",

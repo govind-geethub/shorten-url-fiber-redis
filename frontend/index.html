@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Instant URL Shortener</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>✂️ URL Shortener</h1>
+        <form id="shortenForm">
+            <input type="url" id="longUrl" placeholder="Paste your long link (e.g., https://linkedin.com)" required>
+            <input type="text" id="customShort" placeholder="Custom short name (optional)">
+            <button type="submit">Shorten Link</button>
+        </form>
+
+        <div id="result" class="hidden">
+            <p>🎉 Your Shortened URL is ready:</p>
+            <a id="shortenedLink" href="#" target="_blank"></a>
+            <div id="metrics"></div>
+        </div>
+        
+        <div id="error" class="hidden"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

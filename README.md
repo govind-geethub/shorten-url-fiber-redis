@@ -1,4 +1,4 @@
-# Go URL Shortener
+# URL Shortener
 
 A high-performance, ultra-low latency URL shortener built in Go. It converts long URLs into compressed, shareable links, leveraging an in-memory database to handle instant HTTP redirections under heavy loads.
 

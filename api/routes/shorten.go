@@ -15,7 +15,7 @@ import (
 
 type request struct {
 	URL         string        `json:"url"`
-	CustomShort string        `json:"short"`
+	CustomShort string        `json:"custom_short"`
 	Expiry      time.Duration `json:"expiry"`
 }
 

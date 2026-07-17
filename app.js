@@ -14,14 +14,14 @@ document.getElementById('shortenForm').addEventListener('submit', async (e) => {
     errorDiv.classList.add('hidden');
 
     try {
-        const response = await fetch('http://localhost:3000/api/v1', {
+        const response = await fetch('https://shorten-url-fiber-redis-9xaq.onrender.com/api/v1', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                url: longUrl,
-                short: customShort
+                url: longUrl,               // Stays matching your JS variable name
+                custom_short: customShort   // Key maps to Go struct, value matches JS variable name
             })
         });
 
@@ -35,7 +35,7 @@ document.getElementById('shortenForm').addEventListener('submit', async (e) => {
         // Clean up the URL format to make sure it links correctly
         let rawShortUrl = data.short;
         if (!rawShortUrl.startsWith('http://') && !rawShortUrl.startsWith('https://')) {
-            rawShortUrl = 'http://' + rawShortUrl;
+            rawShortUrl = 'https://' + rawShortUrl; // Changed to https since your Render app is secured via SSL
         }
 
         // Update the UI link elements

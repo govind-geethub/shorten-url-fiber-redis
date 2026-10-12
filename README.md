@@ -1,13 +1,20 @@
-# URL Shortener
+# Simple Social Media App
 
-A high-performance, ultra-low latency URL shortener built in Go. It converts long URLs into compressed, shareable links, leveraging an in-memory database to handle instant HTTP redirections under heavy loads.
+A lightweight social media web application built with Python, FastAPI, and Streamlit. It allows users to create accounts, authenticate securely, upload images and videos with captions, and explore posts shared by other users, with media stored on ImageKit and post metadata managed through SQLite.
 
 ## ✨ Features
-* **Sub-Millisecond Redirects:** Delivers near-instantaneous routing by serving lookups entirely from memory.
-* **Custom Aliases & TTL:** Supports user-defined short keys and automatically expires links using Redis TTL.
-* **API Rate Limiting:** Includes built-in middleware to track client IPs and prevent endpoint abuse.
+* **User Authentication:** Supports user registration and login with JWT-based authentication.
+* **Media Sharing:** Upload images and videos with captions to create posts.
+* **Social Feed:** Displays posts with media, captions, author information, and timestamps.
+* **Post Management:** Allows users to delete their own posts with backend ownership checks.
+* **Cloud Media Storage:** Uses ImageKit to store uploaded media and serve it through URLs.
+* **Database Migrations:** Uses Alembic to manage database schema changes while preserving existing records.
 
 ## 🛠️ Tech Stack
-* **Backend:** Go (Golang)
-* **Framework:** Go-Fiber (`fasthttp` engine)
-* **Database:** Redis (In-memory key-value store)
+* **Frontend:** Streamlit
+* **Backend:** Python, FastAPI
+* **Authentication:** FastAPI Users, JWT
+* **Database:** SQLite
+* **ORM:** SQLAlchemy (async)
+* **Media Storage:** ImageKit
+* **Database Migrations:** Alembic
